@@ -25,10 +25,9 @@ const Home = () => {
                 <span className="highlight"> memories</span>
               </h1>
               <p>
-                ugfuovfuouyvfouuuuuuuuuuuuuuuu
-                ewfoyyyyyyyyyyyyyyyyyyyyyyyyyy
-                yuwgfeuovouvuwyvyvyvyvyvyvyvyv
-                uyuyvouavwwwwwwww
+                lololoyycivdvisssssssvcusvyudv
+                shcoushbducobhsouhbcoushdubc
+                uybgcubsuodcbosbhuohbcuoshbdu
               </p>
             </div>
           </Col>
