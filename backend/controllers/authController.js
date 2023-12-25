@@ -5,10 +5,10 @@ import jwt from "jsonwebtoken";
 // user registration
 export const register = async (req, res) => {
   try {
-    //hashing password
+    // hashing password asynchronously
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(req.body.password, salt);
 
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
@@ -20,9 +20,10 @@ export const register = async (req, res) => {
 
     res.status(200).json({ success: true, message: "Successfully created" });
   } catch (err) {
+    console.error("Registration Error:", err);
     res
       .status(500)
-      .json({ success: false, message: "Failed to create.Try again" });
+      .json({ success: false, message: "Failed to create. Try again" });
   }
 };
 
@@ -32,31 +33,29 @@ export const login = async (req, res) => {
   try {
     const user = await User.findOne({ email });
 
-    //if user does not exist
+    // if user does not exist
     if (!user) {
       return res
         .status(404)
         .json({ success: false, message: "User not found" });
     }
 
-    //if user exist then check the password or compare the password
-
+    // if user exists, then check the password or compare the password
     const checkCorrectPassword = await bcrypt.compare(
       req.body.password,
       user.password
     );
 
-    //if password is incorrect
+    // if password is incorrect
     if (!checkCorrectPassword) {
       return res
         .status(401)
-        .json({ success: false, message: "Incorrect email or Password" });
+        .json({ success: false, message: "Incorrect email or password" });
     }
 
     const { password, role, ...rest } = user._doc;
 
-    //create jwt token
-
+    // create jwt token
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET_KEY,
@@ -76,6 +75,7 @@ export const login = async (req, res) => {
         role,
       });
   } catch (err) {
+    console.error("Login Error:", err);
     res.status(500).json({ success: false, message: "Failed to login" });
   }
 };
