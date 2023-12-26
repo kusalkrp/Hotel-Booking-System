@@ -7,7 +7,7 @@
 .tour__info,
 .tour__reviews {
   border-radius: 0.5rem;
-  border: 1px solid rgb(229, 231, 235);
+  border: 1px solid rgb(251, 251, 251);
   padding: 2rem;
 }
 
@@ -118,4 +118,19 @@
 
 .review__item span {
   font-weight: 500;
+}
+
+@media only screen and (max-width: 768px) {
+  .tour__extra-details {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .tour__extra-details span {
+    font-size: 0.9rem;
+  }
+
+  .tour__extra-details span i {
+    font-size: 1rem;
+  }
 }

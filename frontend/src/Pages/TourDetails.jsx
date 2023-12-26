@@ -38,6 +38,7 @@ const TourDetails = () => {
   const options = { day: "numeric", month: "long", year: "numeric" };
 
   // submit request to the server
+  // submit request to the server
   const submitHandler = async (e) => {
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;
@@ -45,24 +46,28 @@ const TourDetails = () => {
     try {
       if (!user || user === undefined || user === null) {
         alert("Please sign in");
-
-        const reviewObj = {
-          username: user.username,
-          reviewText,
-          rating: tourRating,
-        };
-        const res = await fetch(`${BASE_URL}/review/${id}`, {
-          method: "POST", // Use 'POST' instead of 'post'
-          headers: {
-            "Content-Type": "application/json", // Fix the header case
-          },
-          credentials: "include",
-          body: JSON.stringify(reviewObj),
-        });
-
-        const result = await res.json();
-        alert(result.message);
       }
+
+      const reviewObj = {
+        username: user?.username,
+        reviewText,
+        rating: tourRating,
+      };
+
+      const res = await fetch(`${BASE_URL}/review/${id}`, {
+        method: "POST", // Use 'POST' instead of 'post'
+        headers: {
+          "Content-Type": "application/json", // Fix the header case
+        },
+        credentials: "include",
+        body: JSON.stringify(reviewObj),
+      });
+
+      const result = await res.json();
+      if (!res.ok) {
+        return alert(result.message);
+      }
+      alert(result.message);
     } catch (err) {
       alert(err.message);
     }
@@ -173,20 +178,20 @@ const TourDetails = () => {
                             <div className="w-100">
                               <div className="d-flex align-items-center justify-content-between">
                                 <div>
-                                  <h5>Kusal</h5>
+                                  <h5>{reviews.username}</h5>
                                   <p>
-                                    {new Date("12-23-2023").toLocaleDateString(
-                                      "en-US",
-                                      options
-                                    )}
+                                    {new Date(
+                                      reviews.createdAt
+                                    ).toLocaleDateString("en-US", options)}
                                   </p>
                                 </div>
                                 <span className="d-flex align-items-center">
-                                  5<i class="ri-star-s-fill"></i>
+                                  {reviews.rating}
+                                  <i class="ri-star-s-fill"></i>
                                 </span>
                               </div>
 
-                              <h6>Amazing tour</h6>
+                              <h6>{reviews.reviewText}</h6>
                             </div>
                           </div>
                         ))}
