@@ -10,10 +10,7 @@ const nav__Links = [
     path: "/home",
     display: "Home",
   },
-  {
-    path: "/about",
-    display: "About",
-  },
+ 
   {
     path: "/tours",
     display: "Tours",

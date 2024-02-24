@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="logo">
               <img src={logo} alt="" />
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
+              Connect with Us: Reach Out for Personalized Assistance and Inquiries Today
               </p>
               <div className="social__links d-flex align-items-center gap-4">
                 <span>
@@ -100,7 +100,7 @@ const Footer = () => {
                   </span>
                   Address:
                 </h6>
-                <p className="mb-0">38/5, Ariyawansha mw,Kantale, Sri Lanka</p>
+                <p className="mb-0">National Institute of Business Management, Sri Lanka</p>
               </ListGroupItem>
               <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-3">
                 <h6 className="mb-0 d-flex align-items-center gap-2">
@@ -125,7 +125,7 @@ const Footer = () => {
 
           <Col lg="12" className="text-center pt-5">
             <p className="copyright">
-              Copyright {year}, design and develop by Kusal Punchihewa. All
+              Copyright {year}, design and develop by HDSE222F. All
               rights reserved.
             </p>
           </Col>

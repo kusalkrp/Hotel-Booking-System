@@ -17,8 +17,8 @@ const Newsletter = () => {
               </div>
 
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error
-                quod deleniti, nulla voluptas ipsam animi.
+              Stay Connected with Us: Subscribe to Our Newsletter
+Join our community and receive exclusive travel tips, destination guides, and special offers straight to your inbox. Sign up now to stay up-to-date with the latest trends in travel and unlock exciting opportunities for your next adventure.
               </p>
             </div>
           </Col>

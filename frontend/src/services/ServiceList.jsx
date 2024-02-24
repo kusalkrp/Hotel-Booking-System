@@ -10,17 +10,17 @@ const serviceData = [
   {
     imgUrl: weatherImg,
     title: "Calculate weather",
-    desc: "hgvhajbjkavhsvhkaljhv",
+    desc: "Plan with Precision",
   },
   {
     imgUrl: guideImg,
     title: "Best Tour Guide",
-    desc: "hgvhajbjkavhsvhkaljhv",
+    desc: "Expert Guidance, Every Step",
   },
   {
     imgUrl: customizationImg,
     title: "Customiztion",
-    desc: "hgvhajbjkavhsvhkaljhv",
+    desc: "Tailored Experiences, Just for You",
   },
 ];
 

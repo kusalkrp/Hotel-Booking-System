@@ -15,6 +15,7 @@ import Testimonials from "../components/Testimonial/Testimonials";
 import MasonryImagesGallery from "../components/Image-gallery/MasonryImagesGallery";
 import Newsletter from "../shared/Newsletter";
 
+
 const Home = () => {
   return (
     <>
@@ -34,8 +35,7 @@ const Home = () => {
                   <span className="highlight"> memories</span>
                 </h1>
                 <p>
-                  lololoyycivdvisssssssvcusvyudv shcoushbducobhsouhbcoushdubc
-                  uybgcubsuodcbosbhuohbcuoshbdu
+                Embark on an unforgettable journey through the mesmerizing landscapes and rich cultural tapestry of Sri Lanka with our expertly crafted travel packages. From lush tea plantations to ancient ruins, our tailored itineraries promise an immersive experience that captures the essence of this tropical paradise. Whether you crave the thrill of wildlife encounters or seek serenity on pristine beaches, let us be your guide as you explore the wonders of Sri Lanka. Start planning your adventure today and uncover the magic of this enchanting island
                 </p>
               </div>
             </Col>
@@ -98,9 +98,9 @@ const Home = () => {
                   we will serve you
                 </h2>
                 <p>
-                  euhiehrigiigirbgeuubibubrebbbr
-                  <br />
-                  ijorjojgoijeoygvhvftttyytyf
+                With our wealth of experience and dedication to excellence, we are committed to delivering unparalleled service
+                  
+                  ensuring each moment of your journey is filled with joy, discovery, and lasting memories. Let us guide you through the wonders of travel, providing personalized attention and expert support every step of the way
                 </p>
               </div>
               <div className="counter__wrapper d-flex align-items-center gap-5">
@@ -124,6 +124,7 @@ const Home = () => {
               </div>
             </Col>
           </Row>
+       
         </Container>
       </section>
 
@@ -164,7 +165,11 @@ const Home = () => {
         </Container>
       </section>
       {/*-------testimonial   section end------------ */}
+      
       <Newsletter />
+      
+      
+      
     </>
   );
 };

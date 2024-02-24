@@ -7,6 +7,7 @@ import userIcon from "../assets/images/user.png";
 import { AuthContext } from "../context/AuthContext"; // Corrected relative import path
 import { BASE_URL } from "../utils/config"; // Corrected relative import path
 
+
 const Register = () => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -104,6 +105,7 @@ const Register = () => {
           </Col>
         </Row>
       </Container>
+   
     </section>
   );
 };

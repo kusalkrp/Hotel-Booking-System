@@ -38,10 +38,7 @@ const Testimonials = () => {
     <Slider {...settings}>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          corrupti sint minus nesciunt quae soluta perspiciatis, harum ratione!
-          Necessitatibus libero pariatur ratione reiciendis suscipit, eveniet
-          dolores repellat illum culpa rem.
+        Booking through this website was a breeze! The interface is intuitive, making it easy to find and compare different travel options. Plus, the customer service was top-notch - they were responsive and helpful throughout the entire booking process. I highly recommend this website to anyone looking for a seamless travel experience
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
@@ -54,10 +51,7 @@ const Testimonials = () => {
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          corrupti sint minus nesciunt quae soluta perspiciatis, harum ratione!
-          Necessitatibus libero pariatur ratione reiciendis suscipit, eveniet
-          dolores repellat illum culpa rem.
+        I had an amazing trip thanks to the recommendations and guidance provided by this website. From finding the perfect accommodations to discovering hidden gems in my destination, everything was tailored to my preferences. The attention to detail and personalized service exceeded my expectations. I will definitely be using this website for all my future travels
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
@@ -70,10 +64,7 @@ const Testimonials = () => {
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          corrupti sint minus nesciunt quae soluta perspiciatis, harum ratione!
-          Necessitatibus libero pariatur ratione reiciendis suscipit, eveniet
-          dolores repellat illum culpa rem.
+        I cannot say enough good things about my experience with this travel website. Not only did they offer competitive prices, but their expertise and insider knowledge truly enhanced my trip. The local tips and suggestions provided by the team made my vacation unforgettable. I'm already planning my next adventure and will be sure to use this website again!
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
@@ -86,10 +77,7 @@ const Testimonials = () => {
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          corrupti sint minus nesciunt quae soluta perspiciatis, harum ratione!
-          Necessitatibus libero pariatur ratione reiciendis suscipit, eveniet
-          dolores repellat illum culpa rem.
+        I recently booked a tour through this website and was blown away by the quality of service. The tour guide was knowledgeable, friendly, and went above and beyond to ensure everyone had a fantastic experience. The itinerary was well-planned, allowing us to see all the highlights of the destination without feeling rushed. I will definitely be booking with this website again in the future!
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
