@@ -1,20 +1,22 @@
 import React, { useState, useContext } from "react";
-import { Container, Row, Col, Form, FormGroup, Button } from "reactstrap";
+import { Container, Row, Col, Form, FormGroup, Button, Alert } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/login.css";
 import registerImg from "../assets/images/register.png";
 import userIcon from "../assets/images/user.png";
-import { AuthContext } from "../context/AuthContext"; // Corrected relative import path
-import { BASE_URL } from "../utils/config"; // Corrected relative import path
-
+import { AuthContext } from "../context/AuthContext";
+import { BASE_URL } from "../utils/config";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
     username: "",
     email: "",
     password: "",
+    confirmPassword: "", // Added confirmPassword field
+    phoneNumber: "",
   });
-
+  const [error, setError] = useState(""); // State to hold registration error
+  const [loading, setLoading] = useState(false); // State to track loading state
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -26,26 +28,38 @@ const Register = () => {
   const handleClick = async (e) => {
     e.preventDefault();
 
+    const { username, email, password, confirmPassword, phoneNumber } = credentials;
+
+    // Check if password and confirmPassword match
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    setLoading(true); // Set loading state to true while making request
+
     try {
       const res = await fetch(`${BASE_URL}/auth/register`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(credentials),
+        body: JSON.stringify({ username, email, password, phoneNumber }),
       });
 
       const result = await res.json();
 
       if (!res.ok) {
-        alert(result.message);
+        setError(result.message);
       } else {
         dispatch({ type: "REGISTER_SUCCESS" });
         navigate("/login");
       }
     } catch (err) {
-      alert(err.message);
+      setError("Failed to register. Please try again later.");
     }
+
+    setLoading(false); // Set loading state back to false after request completes
   };
 
   return (
@@ -62,6 +76,7 @@ const Register = () => {
                   <img src={userIcon} alt="User" />
                 </div>
                 <h2>Register</h2>
+                {error && <Alert color="danger">{error}</Alert>}
                 <Form onSubmit={handleClick}>
                   <FormGroup>
                     <input
@@ -90,11 +105,30 @@ const Register = () => {
                       onChange={handleChange}
                     />
                   </FormGroup>
+                  <FormGroup>
+                    <input
+                      type="password"
+                      placeholder="Confirm Password"
+                      required
+                      id="confirmPassword"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <input
+                      type="tel"
+                      placeholder="Phone Number"
+                      required
+                      id="phoneNumber"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
                   <Button
                     className="btn secondary__btn auth__btn"
                     type="submit"
+                    disabled={loading} // Disable button while loading
                   >
-                    Create Account
+                    {loading ? "Loading..." : "Create Account"}
                   </Button>
                   <p>
                     Already have an account? <Link to="/login">Login</Link>
@@ -105,7 +139,6 @@ const Register = () => {
           </Col>
         </Row>
       </Container>
-   
     </section>
   );
 };

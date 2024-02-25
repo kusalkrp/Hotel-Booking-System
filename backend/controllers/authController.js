@@ -13,6 +13,7 @@ export const register = async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: hash,
+      phoneNumber: req.body.phoneNumber,
       photo: req.body.photo,
     });
 

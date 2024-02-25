@@ -2,9 +2,29 @@ import User from "../models/User.js";
 
 // Create new User
 export const createUser = async (req, res) => {
-  const newUser = new User(req.body);
+  const { username, email, password, phoneNumber, photo, role } = req.body;
+
   try {
+    // Check if required fields are provided
+    if (!username || !email || !password  || !phoneNumber) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide all required fields: username, email, password,  phoneNumber",
+      });
+    }
+
+    // Create a new user
+    const newUser = new User({
+      username,
+      email,
+      password,
+
+      phoneNumber,
+      photo,
+      role,
+    });
     const savedUser = await newUser.save();
+
     res.status(200).json({
       success: true,
       message: "Successfully created",
